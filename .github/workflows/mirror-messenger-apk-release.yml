@@ -1,0 +1,22 @@
+on:
+  workflow_dispatch:
+
+  repository_dispatch:
+    types:
+      - webhook
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Mirror Messenger APK Release
+        uses: andrewthetechie/gha-clone-releases@v1
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          src_repo: streamware/selemene
+          copy_assets: true
+          skip_draft: true
+          limit: 1
