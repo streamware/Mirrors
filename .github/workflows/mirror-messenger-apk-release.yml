@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Mirror Messenger APK Release
         uses: andrewthetechie/gha-clone-releases@v1
         with:
           token: ${{ secrets.GH_TOKEN }}
-          src_repo: streamware/selemene
+          src_repo: streamware/messenger-compose
           copy_assets: true
           skip_draft: true
           limit: 1
